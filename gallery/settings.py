@@ -31,11 +31,6 @@ STATICFILES_DIRS = (
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
-cloudinary.config( 
-    cloud_name = config('CLOUD_NAME'), 
-    api_key = config("API_KEY"), 
-    api_secret =config("API_SECRET") 
-    )
 # development
 if config('MODE')=="dev":
    DATABASES = {
@@ -49,7 +44,6 @@ if config('MODE')=="dev":
        }
        
    }
-   
 # production
 else:
    DATABASES = {
@@ -163,3 +157,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
 django_heroku.settings(locals())
 
 
+cloudinary.config( 
+  cloud_name = "isaiahk", 
+  api_key = "689256428955228", 
+  api_secret = "u-worssBW6Z9BhXJJl83ejKWuNg" 
+)
