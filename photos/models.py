@@ -28,4 +28,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
         
-   
+    def save_category(self):
+        self.save()
+        
+    @classmethod
+    def search_category(cls,category):
+        query= cls.objects.filter(name=category)
+        return query
