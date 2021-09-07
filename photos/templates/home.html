@@ -61,7 +61,23 @@
   </div>
 </div>
 </div>
+{%block scripts%}
+<script>
+function showimage(id){
+document.getElementById(id).style.display="block";
+}
+function copyfunction(){
+  navigator.clipboard.writeText("{{pic.image.url}}");
+   //document.execCommand("copy");
+   confirm("link copied!")
+}
+function hideimage(id){
+  document.getElementById(id).style.display="none";
+}
 
+</script>
+
+{% endblock %}
 {%empty%}
 <div class="row"><span style='color:orange;'>No Images in the database</span></div>
 {% endfor %}
