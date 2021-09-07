@@ -47,7 +47,23 @@
   </div>
 </div>
 </div>
+{%block scripts%}
+<script>
+function showimage(id){
+document.getElementById(id).style.display="block";
+}
+function copyfunction(){
+  navigator.clipboard.writeText("{{item.image.url}}");
+   //document.execCommand("copy");
+   confirm("link copied!")
+}
+function hideimage(id){
+  document.getElementById(id).style.display="none";
+}
 
+</script>
+
+{% endblock %}
 </div>
 {% endfor %}
 
