@@ -1,0 +1,47 @@
+{% extends 'common/base.html' %}
+{% block content%}
+{% load cloudinary %}
+
+<div class="container">
+
+<div class="row">
+<div class="col-6 col-md-6 col-sm 6">
+<div class="row"><h2>Places</h2>
+    {%for location in locations%}
+    <div class="col-md-2 col-sm-4" style="margin-top:10px;margin-left:10px" >{{location}}</div>
+  {% endfor%}
+</div>
+</div>
+<div class="col-6 col-md-6 col-sm 8" style="display:flex;justify-content:right;">
+<form class="navbar-form" role="search" action={%url 'search_category'%}>
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search category code i.e 2" name="category">
+            <div class="input-group-btn">
+              <button class="form-control btn btn-success" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+
+        </form>
+</div>
+</div>
+</div>
+<div class="container-fluid" style="margin-top:20px;">
+{% if pics %}
+{% for pic in  pics%}
+<div class="card col-md-4" style="justify-content:flex-start;items-align:center;" onclick="showimage({{pic.id}});">
+<div class="row"><img src="{{pic.image.url}}" style="height:400px;width:400px" class="img-responsive"></div>
+<div class="row">Title: {{pic.title}}</div>
+<div class="row">Location: {{pic.location}}</div>
+</div>
+
+
+{%empty%}
+<div class="row"><span style='color:orange;'>No Images in the database</span></div>
+{% endfor %}
+
+
+
+{% endif %}
+</div>
+{% endblock  %}
