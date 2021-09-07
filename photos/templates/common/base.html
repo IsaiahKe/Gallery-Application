@@ -1,0 +1,12 @@
+
+{% load bootstrap3 %}
+{% block styles %}
+{% bootstrap_css %}
+{% endblock  %}
+{% if title %}
+<title>{{title}}</title>
+{% else %}
+<title>Photo App</title>
+{% endif %}
+{% block content %}
+{% endblock %}
